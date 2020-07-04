@@ -7,7 +7,7 @@
 # できれば、ファイル名に半角スペースが含まれていないことを仕様に入れたい。
 $ filename=“filename”
 $ ext=mp4
-$ ls -1 | sed 's/ /\\ /' |awk '{print "file " $0}' | ffmpeg -f concat -protocol_whitelist file,pipe -safe 0 -i - -c copy  "${filename}.ext"
+$ ls -1 | sed 's/ /\\ /' |awk '{print "file " $0}' | ffmpeg -f concat -protocol_whitelist file,pipe -safe 0 -i - -c copy  "${filename}.${ext}"
 ```
 
 ## ファイルのエンコードの変更
