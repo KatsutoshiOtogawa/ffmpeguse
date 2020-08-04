@@ -18,3 +18,12 @@ $ ls -1 | sed 's/ /\\ /g' |awk '{print "file " $0}' | ffmpeg -f concat -protocol
 $ filename=“filename”
 $ ffmpeg -i "${filename}.wmv" "${filename}.mp4"
 ```
+## まとめて実行
+
+```
+$ filename=“filename”
+$ origext=wmv
+$ ext=mp4
+$ ls -1 | sed 's/ /\\ /g' |awk '{print "file " $0}' | ffmpeg -f concat -protocol_whitelist file,pipe -safe 0 -i - -c copy  "${filename}.${origext}"
+$ ffmpeg -i "${filename}.${origext}" "${filename}.${ext}"
+```
