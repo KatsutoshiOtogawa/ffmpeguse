@@ -17,4 +17,8 @@ if [[ ! ($filename && $origext && $ext) ]]; then
 fi
 
 ls -1 | sort -V | sed 's/ /\\ /g' |awk '{print "file " $0}' | ffmpeg -f concat -protocol_whitelist file,pipe -safe 0 -i - -c copy  "${filename}.${origext}"
-ffmpeg -i "${filename}.${origext}" "${filename}.${ext}"
+
+# 変更後の拡張子と変更前の拡張子が一致しない場合は動画ファイルの種類を変更する。
+if [[ ! ($origext = $ext) ]]; then
+    ffmpeg -i "${filename}.${origext}" "${filename}.${ext}"
+fi
