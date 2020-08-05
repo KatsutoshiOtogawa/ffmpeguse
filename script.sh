@@ -1,11 +1,17 @@
+# 引数代入
+filename=$1
+origext=$2
+ext=$3
+
 # ffmpeg存在確認
 which ffmpeg > /dev/null
 if [[ $? -ne 0 ]]; then
     echo you need to install ffmpeg for edit movie file.
     exit 1
 fi
-# 引数はすべて環境変数から受け継ぐ
-if [[ ! ($filename && $ext && $origext) ]]; then
+
+# 引数のチェック
+if [[ ! ($filename && $origext && $ext) ]]; then
     echo you need to set variable filename, ext and origext.
     exit 1
 fi
