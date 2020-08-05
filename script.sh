@@ -5,7 +5,7 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 # 引数はすべて環境変数から受け継ぐ
-if [[ -v filename && -v ext && -v origext ]]; then
+if [[ $filename && $ext && $origext ]]; then
     echo you need to set variable filename, ext and origext.
     exit 1
 fi
