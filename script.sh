@@ -1,7 +1,8 @@
 # ffmpeg存在確認
 which ffmpeg > /dev/null
-if [[ $? ]]; then
+if [[ $? -ne 0 ]]; then
     echo you need to install ffmpeg for edit movie file.
+    exit 1
 fi
 # 引数はすべて環境変数から受け継ぐ
 if [[ -v filename && -v ext && -v origext ]]; then
