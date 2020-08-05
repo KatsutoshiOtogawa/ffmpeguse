@@ -28,3 +28,11 @@ $ ext=mp4
 $ ls -1 | sort -V | sed 's/ /\\ /g' |awk '{print "file " $0}' | ffmpeg -f concat -protocol_whitelist file,pipe -safe 0 -i - -c copy  "${filename}.${origext}"
 $ ffmpeg -i "${filename}.${origext}" "${filename}.${ext}"
 ```
+
+## scriptから実行
+```
+$ filename=“filename”
+$ origext=wmv
+$ ext=mp4
+$ curl -sf https://raw.githubusercontent.com/KatsutoshiOtogawa/ffmpeguse/master/script.sh | bash -s $filename $origext $ext
+```
