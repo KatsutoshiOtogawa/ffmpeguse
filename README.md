@@ -34,5 +34,5 @@ $ ffmpeg -i "${filename}.${origext}" "${filename}.${ext}"
 $ filename=“filename”
 $ origext=wmv
 $ ext=mp4
-$ curl -sf https://raw.githubusercontent.com/KatsutoshiOtogawa/ffmpeguse/master/script.sh | bash -s $filename $origext $ext
+$ curl -sf https://raw.githubusercontent.com/KatsutoshiOtogawa/ffmpeguse/master/script.sh | bash -s $"${filename}" $origext $ext
 ```
