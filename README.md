@@ -36,3 +36,13 @@ $ origext=wmv
 $ ext=mp4
 $ curl -sf https://raw.githubusercontent.com/KatsutoshiOtogawa/ffmpeguse/master/script.sh | bash -s "${filename}" $origext $ext
 ```
+# 動画から静画へのぬき出し
+
+```
+$ filename="filename"
+$ # 開始時間(秒)
+$ start_time=120
+$ # 開始時間から何秒抜き取るか
+$ pop_time=7200
+$ ffmpeg -i  -ss $start_time -t $pop_time out_%06d.jpg
+```
