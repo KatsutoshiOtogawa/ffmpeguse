@@ -40,9 +40,10 @@ $ curl -sf https://raw.githubusercontent.com/KatsutoshiOtogawa/ffmpeguse/master/
 
 ```
 $ filename="filename"
+$ ext=mp4
 $ # 開始時間(秒)
 $ start_time=120
 $ # 開始時間から何秒抜き取るか
 $ pop_time=7200
-$ ffmpeg -i  -ss $start_time -t $pop_time out_%06d.jpg
+$ ffmpeg -i "${filename}.${ext}" -ss $start_time -t $pop_time $filename_%06d.jpg
 ```
