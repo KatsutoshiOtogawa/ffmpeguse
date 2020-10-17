@@ -47,3 +47,8 @@ $ # 開始時間から何秒抜き取るか
 $ pop_time=7200
 $ ffmpeg -i "${filename}.${ext}" -ss $start_time -t $pop_time $filename_%06d.jpg
 ```
+
+## jpgからwebp変換
+```
+$ ls -1 | grep jpg | sed 's/.jpg//' | xargs -I {} cwebp {}.jpg -o {}.webp
+```
